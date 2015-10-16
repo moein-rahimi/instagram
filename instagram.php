@@ -8,19 +8,19 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 $result = curl_exec($ch);
-echo $result;
-if(curl_errno($ch)){
-    echo 'Curl error: ' . curl_error($ch);
-}
-curl_close($ch);
-}
+//echo $result;
+
 
 $response = json_decode($result,true);
 foreach ($response['data'] as $image) {
     $image = (str_replace('\\/', '/', json_encode($result['image']['low_resolution']['url'])));
     echo '<img src="'.$image['images']['low_resolution']['url'].'" alt=""/> ';
 }
-
+if(curl_errno($ch)){
+    echo 'Curl error: ' . curl_error($ch);
+}
+curl_close($ch);
+}
 
 
 ?>
