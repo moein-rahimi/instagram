@@ -4,19 +4,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Instagram Photo Instant Search App with jQuery</title>
   <meta name="author" content="Jake Rocheleau">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="ajax.js"></script>
+
 </head>
 
 <body>
-	<div id="w">
-	  <section id="sform">
-	    <small>Note: No spaces or punctuation allowed. Searches are limited to one(1) keyword.</small>
-	    <input type="text" id="s" name="s" class="sfield" placeholder="Enter a search tag..." autocomplete="off">
-	  </section>
-		
-	  <section id="photos"></section>
-	</div>
+	<form action="instagram.php">
+<input type="text" name="tag" placeholder="enter a tag">
+<button type="submit">search</button>
+	</form>
+
 </body>
 </html>

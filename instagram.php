@@ -1,6 +1,9 @@
 <?php
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,"https://api.instagram.com/v1/tags/cake/media/recent?client_id=346b0ad31d5f41c38e0369b5c7c3a488");
+if (isset($_GET['tag'])) {
+    $tag = $_GET['tag'];
+     $client = "346b0ad31d5f41c38e0369b5c7c3a488";
+    $ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,"https://api.instagram.com/v1/tags/".$tag."/media/recent?client_id=".$client."");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -10,43 +13,14 @@ if(curl_errno($ch)){
     echo 'Curl error: ' . curl_error($ch);
 }
 curl_close($ch);
+}
 
-// $client = "346b0ad31d5f41c38e0369b5c7c3a488";
+$response = json_decode($result,true);
+foreach ($response['data'] as $image) {
+    $image = (str_replace('\\/', '/', json_encode($result['image']['low_resolution']['url'])));
+    echo '<img src="'.$image['images']['low_resolution']['url'].'" alt=""/> ';
+}
 
-// $api = "https://api.instagram.com/v1/tags/cake/media/recent?client_id=".$client;
 
-// function get_curl($url) {
-//     if(function_exists('curl_init')) {
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL,$url);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//         curl_setopt($ch, CURLOPT_HEADER, 0);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
-//         $output = curl_exec($ch);
-//         echo curl_error($ch);
-//         curl_close($ch);
-//         return $output;
-//     } else{
-//         return file_get_contents($url);
-//     }
-// }
-// $images = array();
 
-// if($response){
-//     foreach(json_decode($response)->data as $item){     
-//         $src = $item->images->standard_resolution->url;
-//         $thumb = $item->images->thumbnail->url;
-//         $url = $item->link;
-        
-//         $images[] = array(
-//         "src" => htmlspecialchars($src),
-//         "thumb" => htmlspecialchars($thumb),
-//         "url" => htmlspecialchars($url)
-//         );
-
-//     }
-// }
-// print_r(str_replace('\\/', '/', json_encode($images)));
-// die();
 ?>
