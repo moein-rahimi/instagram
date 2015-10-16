@@ -1,10 +1,22 @@
 <html>
 <head>
     <title>search result</title>
-    <link rel="stylesheet" href="fakeLoader.css">
+  <style type="text/css">
+img.lazy {
+        width: 700px; 
+        height: 467px; 
+        display: block;
+        
+        /* optional way, set loading as background */
+        background-image: url('loading.gif');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+  </style>
 </head>
 <body>
-<div id="fakeLoader"></div>
+
 
 <?php
 if (isset($_GET['tag'])) {
@@ -22,7 +34,7 @@ $result = curl_exec($ch);
 $response = json_decode($result,true);
 foreach ($response['data'] as $image) {
   //  $image = (str_replace('\\/', '/', json_encode($result['image']['low_resolution']['url'])));
-    echo '<img src="'.$image['images']['low_resolution']['url'].'" alt=""/> ';
+    echo '<img class="lazy" src="'.$image['images']['low_resolution']['url'].'" alt=""/> ';
 }
 if(curl_errno($ch)){
     echo 'Curl error: ' . curl_error($ch);
@@ -32,16 +44,14 @@ curl_close($ch);
 
 
 ?>
-<script src="jquery.js">
-
-<script src="fakeLoader.min.js">
-
-
+<script src="jquery.js"></script>
+<script type="text/javascript" src="jquery.lazy.min.js"></script>
 <script type="text/javascript">
-
-$("#fakeloader").fakeLoader();
-
+  $(function() {
+        $('.lazy').lazy();
+            
+       
+    });
 </script>
-
 </body>
 </html>
