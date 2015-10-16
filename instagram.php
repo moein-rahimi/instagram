@@ -8,7 +8,7 @@ img.lazy {
         display: block;
         
         /* optional way, set loading as background */
-        background-image: url('loading.gif');
+        background-image: url('load.gif');
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
