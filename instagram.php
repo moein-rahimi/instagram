@@ -1,3 +1,11 @@
+<html>
+<head>
+    <title>search result</title>
+    <link rel="stylesheet" href="fakeLoader.css">
+</head>
+<body>
+<div id="fakeLoader"></div>
+
 <?php
 if (isset($_GET['tag'])) {
     $tag = $_GET['tag'];
@@ -24,3 +32,16 @@ curl_close($ch);
 
 
 ?>
+<script src="jquery.js">
+
+<script src="fakeLoader.min.js">
+
+
+<script type="text/javascript">
+
+$("#fakeloader").fakeLoader();
+
+</script>
+
+</body>
+</html>
