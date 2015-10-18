@@ -19,6 +19,7 @@ bgColor:"#2ecc71", //Hex, RGB or RGBA colors
 
 
 });
+</script>
 <head>
  <link rel="stylesheet" href="fakeLoader.css">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
