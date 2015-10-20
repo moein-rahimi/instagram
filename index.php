@@ -26,8 +26,8 @@
 
 
 
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
+script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
 
 $('form').on('submit',function(e){
 
@@ -35,7 +35,7 @@ $('form').on('submit',function(e){
 
 
 
-$.post('Instagram.php',$(this).serialize(),function(data){
+$.post('instagram.php',$(this).serialize(),function(data){
 
 console.log(data);
 $('#content').load('Instagram.php', '#con');
