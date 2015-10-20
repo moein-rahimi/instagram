@@ -13,7 +13,7 @@
 
 <body>
 	
-		<form action="#">
+		<form action="#" method="post">
 <input type="text" name="tag" placeholder="enter a tag">
 <button type="submit">search</button>
 	</form>
@@ -32,13 +32,10 @@
 $('form').on('submit',function(e){
 
 
-
-
-
 $.post('instagram.php',$(this).serialize(),function(data){
 
 console.log(data);
-$('#content').load('Instagram.php', '#con');
+$('#content').load('instagram.php', '#con');
 
 });
 e.preventDefault();
