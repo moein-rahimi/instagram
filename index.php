@@ -35,7 +35,7 @@ $('form').on('submit',function(e){
 $.post('instagram.php',$(this).serialize(),function(data){
 
 console.log(data);
-$('#content').load('instagram.php', '#con img');
+$('#content').load('instagram.php', 'img');
 
 });
 e.preventDefault();
