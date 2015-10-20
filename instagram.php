@@ -16,7 +16,7 @@ $result = curl_exec($ch);
 
 $response = json_decode($result,true);
 ?>
-<div id ="con">
+
   <?php
 foreach ($response['data'] as $image) {
   //  $image = (str_replace('\\/', '/', json_encode($result['image']['low_resolution']['url'])));
@@ -29,4 +29,4 @@ curl_close($ch);
 
 
 ?>
-</div>
+
